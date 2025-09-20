@@ -34,6 +34,7 @@ const cspDirectives = {
         "'self'",
         "https://cdn.jsdelivr.net",
         "https://fonts.googleapis.com",
+        "https://cdnjs.cloudflare.com", // Allow Skeleton CSS
         "'unsafe-inline'"
     ],
     // Separate directive for style elements (fallbacks covered by style-src)
@@ -41,6 +42,7 @@ const cspDirectives = {
         "'self'",
         "https://cdn.jsdelivr.net",
         "https://fonts.googleapis.com",
+        "https://cdnjs.cloudflare.com", // Allow Skeleton CSS
         "'unsafe-inline'"
     ],
     // Allow browser to fetch source maps and other resources from the CDN

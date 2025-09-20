@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful - IMPORTANT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <style>
+        .warning-box {
+            border: 2px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fbeae5;
+            border-radius: 5px;
+        }
+        .seed-phrase {
+            background-color: #f4f5f6;
+            border: 1px solid #d1d1d1;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 1.2em;
+            word-spacing: 8px;
+            line-height: 1.6;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Successful!</h1>
+        <h2>Please Save Your Wallet Information</h2>
+
+        <div class="warning-box">
+            <h3><strong>CRITICAL WARNING</strong></h3>
+            <p>
+                This is your <strong>Secret Recovery Phrase (or Seed Phrase)</strong>. It is the master key to your new crypto wallet.
+            </p>
+            <ul>
+                <li><strong>WRITE IT DOWN</strong> and store it in a safe, offline location.</li>
+                <li><strong>DO NOT</strong> save it as a screenshot or in a text file on your computer.</li>
+                <li><strong>NEVER</strong> share it with anyone. We will never ask for it.</li>
+                <li>If you lose this phrase, you will <strong>PERMANENTLY LOSE ACCESS</strong> to your wallet and funds. We cannot recover it for you.</li>
+            </ul>
+            <p>You will only be shown this once.</p>
+        </div>
+
+        <h3>Your Secret Recovery Phrase:</h3>
+        <div class="seed-phrase"><%= mnemonic %></div>
+
+        <h3>Your Public Wallet Address:</h3>
+        <p>This is safe to share. It's like your bank account number: <code><%= address %></code></p>
+
+        <a href="/login" class="button button-primary">I have saved my phrase. Proceed to Login.</a>
+    </div>
+</body>
+</html>

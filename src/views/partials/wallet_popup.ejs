@@ -1,0 +1,74 @@
+<!-- Wallet Popup Window -->
+<div id="wallet-popup" class="wallet-popup-container">
+    <div class="wallet-popup-header">
+        <div class="d-flex align-items-center">
+            <span class="navbar-text small me-3">
+                Hi, <strong><%= full_name %></strong>
+            </span>
+            <a class="btn btn-sm btn-outline-danger" href="/logout" title="Logout"><i class="bi bi-box-arrow-right"></i></a>
+        </div>
+        <button type="button" id="close-wallet-btn" class="btn-close" aria-label="Close"></button>
+    </div>
+
+    <div class="wallet-popup-body">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs nav-fill" id="walletTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="assets-tab" data-bs-toggle="tab" data-bs-target="#assets-tab-pane" type="button" role="tab" aria-controls="assets-tab-pane" aria-selected="true">Assets</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="send-tab" data-bs-toggle="tab" data-bs-target="#send-tab-pane" type="button" role="tab" aria-controls="send-tab-pane" aria-selected="false">Send</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content p-3" id="walletTabContent">
+            <!-- Assets Tab -->
+            <div class="tab-pane fade show active" id="assets-tab-pane" role="tabpanel" aria-labelledby="assets-tab" tabindex="0">
+                <div class="text-center">
+                    <h5 class="card-title text-muted">Current Balance</h5>
+                    <p class="card-text balance"><%= balance %> ETH</p>
+                    <hr>
+                    <p class="text-muted mb-2">Your Wallet Address</p>
+                    <div class="input-group mb-3">
+                        <input type="text" id="walletAddress" class="form-control wallet-address" value="<%= wallet_address %>" readonly>
+                        <button class="btn btn-outline-secondary copy-btn" type="button" id="copyButton" title="Copy to clipboard">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Send Tab -->
+            <div class="tab-pane fade" id="send-tab-pane" role="tabpanel" aria-labelledby="send-tab" tabindex="0">
+                <form id="send-form" action="/dashboard/send" method="POST">
+                    <div class="mb-3">
+                        <label for="receiver_address" class="form-label">Recipient Address</label>
+                        <input type="text" class="form-control" id="receiver_address" name="receiver_address" placeholder="0x..." required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount (ETH)</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="amount" name="amount" placeholder="0.05" step="any" min="0" required>
+                            <span class="input-group-text">ETH</span>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning small p-2" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        Transactions are irreversible. Please double-check the address.
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" id="send-button" class="btn btn-primary">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+                            <span class="button-text">Confirm & Send</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="wallet-popup-footer">
+        This is a custodial wallet. Never share your private keys.
+    </div>
+</div>

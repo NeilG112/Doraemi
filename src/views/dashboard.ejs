@@ -1,0 +1,35 @@
+<%- include('partials/header', { title: 'Dashboard - Doraemi App' }) %>
+
+<h1 class="mb-3">Chart</h1>
+<p class="lead">This is the main dashboard area. Your application's primary content, like charts and analytics, will be displayed here.</p>
+<div class="p-5 bg-light border rounded-3">
+    <h2>Live DORA Price</h2>
+    <p>The current price is: <span id="currentPrice">--</span></p>
+
+    <div class="chart-container mt-4">
+        <div class="d-flex justify-content-end mb-2">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Range selector" id="rangeSelector">
+                <button type="button" class="btn btn-outline-primary active" data-range="1">1m</button>
+                <button type="button" class="btn btn-outline-primary" data-range="5">5m</button>
+                <button type="button" class="btn btn-outline-primary" data-range="60">1h</button>
+                <button type="button" class="btn btn-outline-primary" data-range="1440">1D</button>
+            </div>
+        </div>
+            <div class="chart-area" style="height:360px;">
+                <canvas id="doraChart" aria-label="Dora price chart" role="img"></canvas>
+            </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
+
+<!-- Chart.js (loaded from CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Chart.js date adapter (date-fns) -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+<!-- Chart.js plugin for financial charts (candlestick) -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial/dist/chartjs-chart-financial.min.js"></script>
+<!-- Hammer.js for touch gestures (required for zoom plugin) -->
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+<!-- Chart.js plugin for zoom and pan -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
